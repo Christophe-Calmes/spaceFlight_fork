@@ -1,0 +1,22 @@
+.buttonSearh {
+    background-color: #4E72AF;
+    font-size: larger;
+    padding: 0.5em;
+    border-radius: 20px;
+    width: 10em;
+    border: solid 1px #DE3E30;
+}
+.formFlex {
+    display: flex;
+    justify-content: space-around;
+
+}
+.displayNone {
+    display: none;
+}
+#searchInput {
+    background-color: #A5B0CE;
+    padding: 0.5em;
+    border-radius: 5px;
+    color: #000000;
+}

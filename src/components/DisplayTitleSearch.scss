@@ -1,0 +1,64 @@
+
+.backGround {
+    background-color: black;
+}
+.flexList {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+}
+.articleBox {
+    background-color: #4E72AF;
+    width: 50%;
+    margin-bottom: 2em;
+    border-radius: 10px;
+    border: #d9d9d9 groove 1px;
+ 
+}
+.articlePicture {
+    width: 50%;
+    height: auto;
+    display: block;
+    margin-left: 5em;
+    border-radius: 5px;
+    border: #4E72AF groove 2px;
+}
+.articleTitle {
+    background-color: #d9d9d9;
+    width: auto;
+    margin-left: 4em;
+    margin-right: 5em;
+    font-size:large;
+    font-weight:600;
+    color: black;
+    padding-left: 0.5em;
+ 
+}
+
+.articleSource {
+    max-width: 15em;
+    min-width: none;
+    background-color: #d9d9d9;
+    margin-left: 4em;
+    margin-right: 0em;
+    font-size: larger;
+    font-weight:300;
+    color: black;
+    padding-left: 0.5em;
+
+}
+.articleDescription {
+    max-width: auto;
+    min-width: none;
+    background-color: #d9d9d9;
+    margin-left: 6em;
+    margin-right: 5em;
+    font-size: small;
+    color: black;
+    padding: 1em;
+    text-align: justify;
+
+}

@@ -1,0 +1,116 @@
+$nav-height: 70px;
+$nav-background: #a5b0ce;
+$nav-font-color: #0c0c0c;
+
+$content-width: 90%;
+
+$logo-height: 70px;
+
+$button-background: #4e72af;
+$button-border-radius: 20px;
+
+.navigation {
+  background-color: $nav-background;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+
+  .logo {
+    img {
+      max-height: $logo-height;
+      margin-left: 1em;
+    }
+  }
+
+  .nav-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+
+    nav {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      ul {
+        display: flex;
+        list-style: none;
+        padding: 0;
+
+        li {
+          margin: 0 50px;
+
+          .NavLink {
+            text-decoration: none;
+            color: black;
+            border: solid 1px #de3e30;
+            font-size: larger;
+            display: inline-block;
+            position: relative;
+            width: 10em;
+            text-align: center;
+            padding: 10px 20px;
+            background-color: $button-background;
+            border-radius: $button-border-radius;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 916px) {
+    flex-direction: column;
+    align-items: stretch;
+
+    .nav-container {
+      margin-top: 10px;
+
+      nav {
+        ul {
+          flex-direction: column;
+          align-items: center;
+          margin: 0;
+
+          li {
+            margin: 5px 0;
+          }
+        }
+      }
+      .menu {
+        display: none;
+        &.show {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+
+      &.menu-open {
+        .menu {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    }
+
+    .mobile {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      .burger-icon {
+        display: block;
+        margin-right: 1em;
+        cursor: pointer;
+
+        .line {
+          width: 30px;
+          height: 3px;
+          background-color: #fff;
+          margin: 6px 0;
+        }
+      }
+    }
+  }
+}
