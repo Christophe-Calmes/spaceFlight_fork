@@ -1,12 +1,24 @@
 import { useEffect, useState } from "react";
 import "./HomePage.scss";
-export const HomePage = () => {
-  const [article, setArticle] = useState(null);
 
+
+const APIRequest = "https://api.spaceflightnewsapi.net/v4/articles?order=desc&sortBy=publishedAt"
+export const HomePage = () => {
+  const CleanDate = (trashDate) => {
+    const date = new Date(trashDate);
+    const formattedDate = date.toLocaleDateString("en-US", {
+      month: "numeric",
+      day: "numeric",
+      year: "numeric",
+    });
+    return formattedDate;
+  }
+  const [article, setArticle] = useState(null);
   useEffect(() => {
-    fetch("https://api.spaceflightnewsapi.net/v4/articles/18640/")
+    fetch(APIRequest)
       .then((response) => response.json())
-      .then((data) => setArticle(data))
+      .then(
+        (data) => setArticle(data.results[0]))
       .catch((error) => {
         console.error("Erreur lors de la récupération de l'article :", error);
       });
@@ -14,19 +26,19 @@ export const HomePage = () => {
 
   return (
     // console.log(article);
-    <div className="article">
+    <div className="backGround flexList">
       <h1>Welcome</h1>
 
       {article ? (
-        <div>
-          <h2>{article.title}</h2>
-          <p>
-            Publié le : {article.published_at}
-            {article.update_at}
+      
+        <div className="articleBox">
+          <h2 className="articleTitle">{article.title}</h2>
+          <p className="articleSource">
+            Publised : {CleanDate(article.published_at)}
           </p>
-          <img src={article.image_url} alt={article.title} />
-          <p>{article.summary}</p>
-          <p>{article.url}</p>
+          <img className="articlePicture" src={article.image_url} alt={article.title} />
+          <p className="articleDescription">{article.summary}</p>
+          <a href={article.url} className="articleDescription">{article.title}</a>
         </div>
       ) : (
         <p>Chargement en cours...</p>

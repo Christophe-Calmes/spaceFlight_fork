@@ -7,8 +7,11 @@
     margin-bottom: 0.5em;
 }
 .gallery {
+    margin-top: 40px;
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
 }
 .backGround {
     background-color: black;
@@ -16,7 +19,7 @@
 
  .item {
     width: 10vw;
-    min-height: 100%;
+    // min-height: 100%;
     min-width: 30vw;
     background-color: #4E72AF;
     color: white;

@@ -1,45 +1,62 @@
 .container_card{
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-
     max-width: 40%;
-    min-height: 710px;
-
-    // background-color: aliceblue;
+    min-height: 20vw;
+    background-color: #4E72AF;
     padding: 10px 40px;
-    margin-bottom: 20px;
+    margin-bottom: 0.5em;
     box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;    
     border-radius: 10px;
-
+    border: #d9d9d9 groove 1px;
     display: flex;
     flex-direction: column;
 
     .sourceTitle {
-        text-transform: uppercase;
-        font-weight: 300;
-        margin-top: 24px;
-        color: gray;
+        max-width: 15em;
+        min-width: none;
+        background-color: #d9d9d9;
+        margin-left: 4em;
+        margin-right: 0em;
+        font-size: larger;
+        font-weight:300;
+        color: black;
+        padding-left: 0.5em;
     }
 
     h2{
-        margin-top: 10px;
-        margin-bottom: 10px;
-        max-width: 90%;
-        font-size: 28px;
-        color: rgb(29, 28, 28);
+        background-color: #d9d9d9;
+        width: auto;
+        margin-left: 4em;
+        margin-right: 5em;
+        font-size:large;
+        font-weight:600;
+        color: black;
+        padding-left: 0.5em;
     }
 
     .cardDate{
-        font-weight: 300;
-        margin-top: auto;
-        color: rgb(48, 48, 48);
+        max-width: 15em;
+    min-width: none;
+    background-color: #d9d9d9;
+    margin-left: 4em;
+    margin-right: 0em;
+    font-size: larger;
+    font-weight:300;
+    color: black;
+    padding-left: 0.5em;
     }
 
     .cardSummary{
-        margin-top: 0px;
-        font-size: 18px;
-        color: gray;
-        font-weight: 200;
+        max-width: auto;
+        min-width: none;
+        background-color: #d9d9d9;
+        margin-left: 6em;
+        margin-right: 5em;
+        font-size: small;
+        color: black;
+        padding: 1em;
+        text-align: justify;
 
     }  
 }
@@ -50,4 +67,5 @@
     max-width: 90%;
     max-height: 320px;
     border-radius: 10px;
+    border: #d9d9d9 groove 1px;
 }

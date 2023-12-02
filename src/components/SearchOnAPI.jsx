@@ -4,7 +4,7 @@ import DisplayTitleSearch from './DisplayTitleSearch';
 
 const debug = false;
 const SearchOnAPI = () => {
-  const [APIRequest, setAPIRequest] = useState('https://api.spaceflightnewsapi.net/v4/articles/?limit=2&offset=0&title_contains=')
+  const [APIRequest, setAPIRequest] = useState('https://api.spaceflightnewsapi.net/v4/articles/?limit=5&offset=0&title_contains=')
   const [searchValue, setSearchValue] = useState('')
   const [startSearch, setStartSearch] = useState(false)
   const [resultSearch, setResultSearch] =  useState({

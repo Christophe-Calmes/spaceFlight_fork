@@ -49,7 +49,7 @@ const SearchMeteoAPI = () => {
   } else {
     return (
       <div>
-        <h1>***Loading data***</h1>
+        <h1 className="loading">***Loading data***</h1>
       </div>
     );
   }
