@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import CardsPost from '../../components/CardsPost';
+import CallAPI from "../../components/callAPI/CallAPIfunction.jsx";
 import "./Sources.scss"
 
 const Sources = () => {
@@ -7,21 +8,6 @@ const Sources = () => {
 
   const [posts, setPosts] = useState([]);
   const [sourceSelected, setSourceSelected] = useState("");
-
- /* const [optionSource, setOptionSource] = useState([
-    {
-      id: 1,
-      name: "SpaceNews",
-    },
-    {
-      id: 2,
-      name: "European Spaceflight",
-    },
-    {
-      id: 3,
-      name: "NASASpaceflight",
-    },
-  ]);*/
   const optionSource = [
     {
       id: 1,
@@ -35,21 +21,14 @@ const Sources = () => {
       id: 3,
       name: "NASASpaceflight",
     },
-  ]
-
+  ];
+const APIRequest = "https://api.spaceflightnewsapi.net/v4/articles/?limit=20"
   useEffect(() => {
-    async function fetchSpace() {
-      //  const response = await fetch("https://api.spaceflightnewsapi.net/v4/articles");
-      const response = await fetch(
-        "https://api.spaceflightnewsapi.net/v4/articles/?limit=20"
-      );
-      const spaceArticles = await response.json();
-      console.log(spaceArticles?.results);
-
-      setPosts(spaceArticles?.results);
-    }
-
-    fetchSpace();
+  const fetchArticlesSource = async () => {
+    const  result = await CallAPI(APIRequest);
+    setPosts(result.results);
+  }
+  fetchArticlesSource();
   }, []);
 
   return (
