@@ -17,12 +17,10 @@ const SearchOnAPI = () => {
   // Test 
   useEffect(()=> setStartSearch(true),[APIRequest]);
   useEffect(()=>{
-
-    /*const fetchResultSearch  = async () => {
-      const resultAPI = await CallAPI(APIRequest, searchValue, startSearch);
-      setResultSearch(resultAPI)
-    }*/
-    const fetchResultSearch = async() => {
+    console.log(startSearch);
+    if(startSearch) {
+      console.log(startSearch);
+      const fetchDataSearch = async() => {
         const response = await fetch(APIRequest + searchValue);
         if(response.status === 200) {
             const data = await response.json();
@@ -31,14 +29,7 @@ const SearchOnAPI = () => {
             return "Error fetch Get API";
         }
     }
-    if(startSearch) {
-     
-      fetchResultSearch({
-                        "count": 0,
-                        "next": null,
-                        "previous": null,
-                        "results": []
-                        });
+      fetchDataSearch();
       setStartSearch(false);
       setSearchValue('')
     }
