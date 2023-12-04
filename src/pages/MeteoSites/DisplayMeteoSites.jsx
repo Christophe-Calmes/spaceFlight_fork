@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import './CardLaunchPlace.scss';
 import CardLaunchPlace from './CardLaunchPlace';
+
 const DisplayMeteoSites = ({MeteoPlaces}) => {
   return (
     <div className='backGround gallery'>
