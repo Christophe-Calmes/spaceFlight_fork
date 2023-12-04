@@ -27,7 +27,7 @@ const Sources = () => {
     async function fetchSpace() {
       //  const response = await fetch("https://api.spaceflightnewsapi.net/v4/articles");
       const response = await fetch(
-        "https://api.spaceflightnewsapi.net/v4/articles/?limit=200"
+        "https://api.spaceflightnewsapi.net/v4/articles/?limit=20"
       );
       const spaceArticles = await response.json();
       console.log(spaceArticles?.results);

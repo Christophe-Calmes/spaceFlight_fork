@@ -1,5 +1,7 @@
+
 import { useEffect, useState } from "react";
 import "./HomePage.scss";
+import CallAPI from "../callAPI/CallAPIfunction.jsx";
 
 
 const APIRequest = "https://api.spaceflightnewsapi.net/v4/articles?order=desc&sortBy=publishedAt"
@@ -13,23 +15,25 @@ export const HomePage = () => {
     });
     return formattedDate;
   }
-  const [article, setArticle] = useState(null);
+  const [article, setArticle] = useState([]);
   useEffect(() => {
-    fetch(APIRequest)
-      .then((response) => response.json())
-      .then(
-        (data) => setArticle(data.results[0]))
-      .catch((error) => {
-        console.error("Erreur lors de la récupération de l'article :", error);
-      });
-  }, []);
+    const fetchData = async () => {
+      const result = await CallAPI(APIRequest);
+      console.log(result, "result useEffect");
+      setArticle(result.results[0]);
+    };
 
+    fetchData();
+
+  }, []);
+  console.log(article);
+  //console.log(`Results console.log home${article}`);
   return (
     // console.log(article);
     <div className="backGround flexList">
       <h1>Welcome</h1>
 
-      {article ? (
+      {article != [] ? (
       
         <div className="articleBox">
           <h2 className="articleTitle">{article.title}</h2>
@@ -41,7 +45,7 @@ export const HomePage = () => {
           <a href={article.url} className="articleDescription">{article.title}</a>
         </div>
       ) : (
-        <p>Chargement en cours...</p>
+        <p className="articleBox">Chargement en cours...</p>
       )}
     </div>
   );
