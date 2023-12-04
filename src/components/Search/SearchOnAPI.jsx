@@ -1,6 +1,7 @@
 import './SearchOnAPI.scss';
 import { useState, useEffect } from 'react'
 import DisplayTitleSearch from './DisplayTitleSearch';
+import CallAPI from "../callAPI/CallAPIfunction.jsx";
 
 const debug = false;
 const SearchOnAPI = () => {
@@ -16,28 +17,16 @@ const SearchOnAPI = () => {
   // Test 
   useEffect(()=> setStartSearch(true),[APIRequest]);
   useEffect(()=>{
-    const fetchResultSearch = async() => {
-        const response = await fetch(APIRequest + searchValue);
-        if(response.status === 200) {
-            const data = await response.json();
-            setResultSearch(data);
-        } else {
-            return "Error fetch Get API";
-        }
-    }
     if(startSearch) {
-     
-      fetchResultSearch({
-                        "count": 0,
-                        "next": null,
-                        "previous": null,
-                        "results": []
-                        });
+    const fetchDataSearch = async() => {
+      const result = await CallAPI(APIRequest, searchValue);
+      setResultSearch(result)
+    }
+      fetchDataSearch();
       setStartSearch(false);
       setSearchValue('')
     }
 }, [startSearch]);
-
 if(debug) {
   console.log(searchValue);
   console.log(resultSearch);
@@ -55,6 +44,7 @@ if(debug) {
         value={searchValue}
         onChange={(event)=>setSearchValue(event.target.value)}  
       />
+
        <button type="submit" className="buttonSearh" onClick={()=>setStartSearch(true)}>Search</button>
        </section>
        <section className="formFlex">
