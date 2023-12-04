@@ -25,10 +25,7 @@ export const HomePage = () => {
     fetchData();
 
   }, []);
-  console.log(article);
-  //console.log(`Results console.log home${article}`);
   return (
-    // console.log(article);
     <div className="backGround flexList">
       <h1>Welcome</h1>
 
