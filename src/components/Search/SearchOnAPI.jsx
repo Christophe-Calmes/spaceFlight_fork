@@ -27,7 +27,6 @@ const SearchOnAPI = () => {
       setSearchValue('')
     }
 }, [startSearch]);
-
 if(debug) {
   console.log(searchValue);
   console.log(resultSearch);
