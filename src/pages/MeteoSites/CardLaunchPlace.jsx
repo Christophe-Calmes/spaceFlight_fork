@@ -1,7 +1,5 @@
 import './CardLaunchPlace.scss';
 const cardLaunchPlace = ({dataWeather, index}) => {
-
-  console.log(index)
   const pictureBank = [
     {nameSpaceCenter: 'Cap Canaveral', illustration: 'capCanaveral.jpg' },
     {nameSpaceCenter: 'Kourou', illustration: 'Kourou.jpg' },
