@@ -17,18 +17,12 @@ const SearchOnAPI = () => {
   // Test 
   useEffect(()=> setStartSearch(true),[APIRequest]);
   useEffect(()=>{
-    console.log(startSearch);
     if(startSearch) {
-      console.log(startSearch);
-      const fetchDataSearch = async() => {
-        const response = await fetch(APIRequest + searchValue);
-        if(response.status === 200) {
-            const data = await response.json();
-            setResultSearch(data);
-        } else {
-            return "Error fetch Get API";
-        }
+    const fetchDataSearch = async() => {
+      const result = await CallAPI(APIRequest, searchValue);
+      setResultSearch(result)
     }
+
       fetchDataSearch();
       setStartSearch(false);
       setSearchValue('')
@@ -52,6 +46,7 @@ if(debug) {
         value={searchValue}
         onChange={(event)=>setSearchValue(event.target.value)}  
       />
+
        <button type="submit" className="buttonSearh" onClick={()=>setStartSearch(true)}>Search</button>
        </section>
        <section className="formFlex">
