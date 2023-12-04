@@ -1,17 +1,14 @@
 import PropTypes from 'prop-types';
 import './CardLaunchPlace.scss';
 import CardLaunchPlace from './CardLaunchPlace';
+
 const DisplayMeteoSites = ({MeteoPlaces}) => {
-  //console.log(MeteoPlaces)
-
-
-
   return (
-    <div className='backGround'>
+    <div className='backGround gallery'>
         
         {
           MeteoPlaces.map((element, index)=>(
-          <div className="gallery " key={element + index}>
+          <div  key={element + index}>
             <CardLaunchPlace dataWeather={element} index={index}/>
           </div>
           )

@@ -1,5 +1,6 @@
 import DisplayMeteoSites from '../../pages/MeteoSites/DisplayMeteoSites';
 import { useEffect, useState } from 'react';
+import CallAPI from "../callAPI/CallAPIfunction.jsx";
 
 const SearchMeteoAPI = () => {
   const dataLatLon = [
@@ -8,37 +9,26 @@ const SearchMeteoAPI = () => {
     { lat: '45.37', lon: '63.18' },
     { lat: '40.96', lon: '100.17' },
   ];
-
+  const APIRequests = [];
+  for(const item of dataLatLon) {
+    APIRequests.push(`http://www.7timer.info/bin/api.pl?lon=${item.lon}&lat=${item.lat}-&product=civillight&output=json`);
+  }
+//console.log(APIRequests);
   const [MeteoPlaces, setMeteoPlaces] = useState([]);
 
   useEffect(() => {
-    const fetchMeteoData = async () => {
-      const promises = [];
-
-      for (const item of dataLatLon) {
-        const response = fetch(
-          `http://www.7timer.info/bin/api.pl?lon=${item.lon}&lat=${item.lat}-&product=civillight&output=json`
-        );
-        promises.push(response);
+    const fetchData = async () => {
+      const MeteoResult = [];
+      for (const request of APIRequests) {
+        const result = await CallAPI(request);
+        MeteoResult.push(result?.dataseries[0]);
       }
-
-      const responses = await Promise.all(promises);
-
-      const meteoData = [];
-      for (const response of responses) {
-        if (response.status === 200) {
-          const jsonData = await response.json();
-          meteoData.push(jsonData.dataseries[0]);
-        } else {
-          console.error('Error fetching API data');
-        }
-      }
-
-      setMeteoPlaces(meteoData);
+      setMeteoPlaces(MeteoResult);
     };
-
-    fetchMeteoData();
+  
+    fetchData();
   }, []);
+  
 
   if (MeteoPlaces.length === dataLatLon.length) {
     return (
