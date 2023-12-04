@@ -19,7 +19,6 @@ export const HomePage = () => {
   useEffect(() => {
     const fetchData = async () => {
       const result = await CallAPI(APIRequest);
-      console.log(result, "result useEffect");
       setArticle(result.results[0]);
     };
 

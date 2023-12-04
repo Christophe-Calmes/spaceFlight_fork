@@ -8,7 +8,7 @@ const Sources = () => {
   const [posts, setPosts] = useState([]);
   const [sourceSelected, setSourceSelected] = useState("");
 
-  const [optionSource, setOptionSource] = useState([
+ /* const [optionSource, setOptionSource] = useState([
     {
       id: 1,
       name: "SpaceNews",
@@ -21,7 +21,21 @@ const Sources = () => {
       id: 3,
       name: "NASASpaceflight",
     },
-  ]);
+  ]);*/
+  const optionSource = [
+    {
+      id: 1,
+      name: "SpaceNews",
+    },
+    {
+      id: 2,
+      name: "European Spaceflight",
+    },
+    {
+      id: 3,
+      name: "NASASpaceflight",
+    },
+  ]
 
   useEffect(() => {
     async function fetchSpace() {
