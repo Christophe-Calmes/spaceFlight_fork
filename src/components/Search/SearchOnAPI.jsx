@@ -1,6 +1,7 @@
 import './SearchOnAPI.scss';
 import { useState, useEffect } from 'react'
 import DisplayTitleSearch from './DisplayTitleSearch';
+import CallAPI from "../callAPI/CallAPIfunction.jsx";
 
 const debug = false;
 const SearchOnAPI = () => {
@@ -16,6 +17,11 @@ const SearchOnAPI = () => {
   // Test 
   useEffect(()=> setStartSearch(true),[APIRequest]);
   useEffect(()=>{
+
+    /*const fetchResultSearch  = async () => {
+      const resultAPI = await CallAPI(APIRequest, searchValue, startSearch);
+      setResultSearch(resultAPI)
+    }*/
     const fetchResultSearch = async() => {
         const response = await fetch(APIRequest + searchValue);
         if(response.status === 200) {
