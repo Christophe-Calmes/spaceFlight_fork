@@ -34,7 +34,7 @@ export const DisplayTitleSearch = ({ resultSearch, setAPIRequest }) => {
     } else {
         return (
             <div>
-                <p>No search results</p>
+                <p className="articleSource">No search results</p>
             </div>
         );
     }

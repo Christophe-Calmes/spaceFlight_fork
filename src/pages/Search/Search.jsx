@@ -1,5 +1,5 @@
 
-import SearchOnAPI from '../../components/SearchOnAPI';
+import SearchOnAPI from '../../components/Search/SearchOnAPI';
 
 const Search = () => {
   return (
