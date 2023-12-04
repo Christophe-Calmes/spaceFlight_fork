@@ -22,7 +22,6 @@ const SearchOnAPI = () => {
       const result = await CallAPI(APIRequest, searchValue);
       setResultSearch(result)
     }
-
       fetchDataSearch();
       setStartSearch(false);
       setSearchValue('')
